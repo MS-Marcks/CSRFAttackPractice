@@ -1,6 +1,12 @@
-import fs from "fs";
-import path from "path";
 
-const users = JSON.parse(fs.readFileSync(path.join(__dirname, "db.json")));
+const users = [
+    {
+        "id": "1",
+        "name": "test",
+        "email": "test@test.com",
+        "password": "1234",
+        "amount": 1000
+    }
+];
 
 export default users;
