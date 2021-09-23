@@ -129,4 +129,35 @@ En la actualidad existen varios ataques cibernéticos hacia aplicaciones web que
       - el servidor **targetServer** se ejecutara en un entorno de **nodejs**
       - el servidor **attackerserver** se ejecutara en un entorno de **ngninx**
     
+
    - ## **3.2.4 ejecucion de la practica**
+      En la practica como se acoto anteriormente se usaran los servidores uno sin la proteccion anti CSRF que trabajeremos con ese servidor primero
+
+      - **ruta de login**
+
+      ![003](img/003.png)
+
+      en cual este servira para iniciar seson en la aplicacion web
+
+      en cual las credenciales seran:
+        - email: **test@test.com**
+        - password: **1234**
+
+      **nota:** en este caso no importa que la contraseña este cifrada porque no relevante para este caso porque las acciones se haran cuando este iniciado sesion
+
+      ![004](img/004.png)
+
+      **nota:** se ingresan los datos para iniciar sesion
+
+      ![005](img/005.png)  
+
+      **nota:** en el cual cuando se inicia sesion el sevidor enviara una cookie de sesion en el encabezado, en el cual el navegador guardara.
+
+      
+
+      ![006](img/006.png)  
+      **nota:** para recordar un poco de como funciona una cookie de sesion.
+
+      el servidor retorna una cookie de sesion para cada uno de los usuarios en el cual servira para realizar las peticiones al servidor.
+
+      en el caso de las cookies es bueno recodar que se guardan en el dominio no por pagina, es decir, una misma cookie estara activa en todas las paginas del dominio sin importar en donde este.
