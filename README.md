@@ -335,3 +335,28 @@ En la actualidad existen varios ataques cibernéticos hacia aplicaciones web que
 
       </html>
       ```
+
+      en el cual este codigo lo que hara es obtener la estructura html del formulario en cual servira para obtener el **token CSRF** para poder realizar la infiltracion a la pagina web
+
+      ![019](img/019.png) 
+
+      pero resulta que hay problema que muestra en la consola
+
+      el error muestra es:
+
+      ```bash
+      Access to fetch at 'http://165.227.167.80:3002/edit' from origin 'http://165.227.167.80:5000' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource. If an opaque response serves your needs, set the request's mode to 'no-cors' to fetch the resource with CORS disabled.
+      ```
+
+      en cual el error muestra es gracias a la proteccion de **CORS** **(Access-Control-Allow-Origin)** "CORS es un mecanismo que permite que se puedan solicitar recursos restringidos en una página web desde un dominio diferente del dominio que sirvió el primer recurso"
+
+      lo que realiza esta proteccion es indicar que paginas web externas al dominio principal debera de tener autotizacion para mostrar los datos al usuario, sino se encuentra esa informacion en el encabezado el navegador no podra mostrar las peticiones entrantes al usuario
+
+
+      ![020](img/020.png) 
+
+      como se puede observar en los datos del encabezado no se encuentra la informacion de CORS para que el navegador tenga acceso a los recursos que provienen del servidor target
+
+      -------
+
+      # Por ello se cumple el prometido de proteger las paginas web o aplicaciones web ante un **ATAUQE CSRF**
