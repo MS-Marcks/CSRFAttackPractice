@@ -92,7 +92,7 @@ En la actualidad existen varios ataques cibernéticos hacia aplicaciones web que
 
   - ## **3.2.2 Imagenes de los servidores**
 
-    - ## **Target Server**
+    - ## **3.2.2.1 Target Server**
 
       Constara de dos imagenes:
 
@@ -112,7 +112,7 @@ En la actualidad existen varios ataques cibernéticos hacia aplicaciones web que
         docker run -d -p "3001:3000" --name csrftargetserver_cp cloud.canister.io:5000/msmarcks/csrftargetserver_cp
         ```
 
-    - ## **Attacker Server**
+    - ## **3.2.2.2 Attacker Server**
 
       Constara de una imagene:
 
@@ -124,6 +124,8 @@ En la actualidad existen varios ataques cibernéticos hacia aplicaciones web que
         docker run -d -p "5000:5000" --name csrfattackserver cloud.canister.io:5000/msmarcks/csrfattackserver
         ```
 
-- explicacion de donde se hara el ejemplo
-  - nodejs
-- Target server
+    - ## **3.2.3 Entornos de ejecucion de las aplicaciones web**
+
+      - el servidor **targetServer** se ejecutara en un entorno de **nodejs**
+      - el servidor **attackerserver** se ejecutara en un entorno de **ngninx**
+    
