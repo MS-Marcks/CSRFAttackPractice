@@ -1,5 +1,6 @@
 'use strict';
 import users from "../../../db";
+import csrf from "../../../middleware/csrf";
 
 class ControllerLogin {
     static async ViewLogin(req, res) {
@@ -14,6 +15,7 @@ class ControllerLogin {
             return res.status(400).send("Credenciales invalidas");
         }
         req.session.userId = user.id;
+        csrf.tokens.set(req.sessionID, new Set())
         res.redirect("/home");
     }
 
