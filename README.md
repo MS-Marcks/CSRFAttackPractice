@@ -78,3 +78,30 @@ En la actualidad existen varios ataques cibernéticos hacia aplicaciones web que
   OWASP (acrónimo de Open Web Application Security Project, en inglés ‘Proyecto abierto de seguridad de aplicaciones web’) es un proyecto de código abierto dedicado a determinar y combatir las causas que hacen que el software sea inseguro. La Fundación OWASP es un organismo sin ánimo de lucro que apoya y gestiona los proyectos e infraestructura de OWASP. La comunidad OWASP está formada por empresas, organizaciones educativas y particulares de todo mundo. Juntos constituyen una comunidad de seguridad informática que trabaja para crear artículos, metodologías, documentación, herramientas y tecnologías que se liberan y pueden ser usadas gratuitamente por cualquiera.
 
   ![DIAGRAMA DE ATAQUE CSRF](img/002.jpeg)
+
+- ## **3.2 Practica**
+    - ## **3.2.1 Entorno de ejecucion de las aplicaciones** 
+      - la siguente practica se hara en un entorno en la nube para facilitar el uso de las herramientas y un caso mas real en donde se puede suceder el ataque
+      - por la cual se usara el proveedor en la nube **[DigitalOcen](http://digitalocean.com/)**
+      - en cual se usará **[DigitalOcen](https://www.docker.com/)** para la visualizacion de los servidores correspondiente para facilitar la configuracion de los servidores
+
+      - para poder instalar docker en el servidor  **[Acceda a este link](https://www.digitalocean.com/community/tutorials/como-instalar-y-usar-docker-en-ubuntu-18-04-1-es)** 
+
+  - ## **3.2.2 Imagenes de los servidores** 
+    - ## **Target Server**
+        Constara de dos imagenes:
+        
+        la primera imagen es para realizar la prueba sin la proteccion Ante el **ataque CSRF** en el cual llevara el nombre de **cloud.canister.io:5000/msmarcks/csrfattackserver_sp**
+
+        - **Comando para iniciar la imagen**
+
+          ```ssh
+          docker run -d -p "3000:3000" --name csrfattackserver_sp cloud.canister.io:5000/msmarcks/csrfattackserver_sp
+          ```
+
+        la segunda imagen es para realizar la prueba con la proteccion Ante el **ataque CSRF** en el cual llevara el nombre de **cloud.canister.io:5000/msmarcks/csrfattackserver_cp**
+  
+- explicacion de donde se hara el ejemplo
+  - nodejs
+- Target server
+   
