@@ -1,3 +1,4 @@
+docker image rm cloud.canister.io:5000/msmarcks/csrftargetserver && docker build -t "cloud.canister.io:5000/msmarcks/csrftargetserver" .
+
 docker image rm cloud.canister.io:5000/msmarcks/csrfattackserver && docker build -t "cloud.canister.io:5000/msmarcks/csrfattackserver" .
 
-docker image rm cloud.canister.io:5000/msmarcks/csrftargetserver && docker build -t "cloud.canister.io:5000/msmarcks/csrftargetserver" .
