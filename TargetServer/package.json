@@ -1,0 +1,41 @@
+{
+  "name": "csrfattackpractice",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "ERROR",
+    "dev": "npx nodemon --exec babel-node ./src/server",
+    "up": "git push && git push devops",
+    "clean": "rm -rf build && mkdir build",
+    "build-babel": "babel -d ./build src -s",
+    "build": "npm run clean && npm run build-babel",
+    "start": "npm run build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MS-Marcks/CSRFAttackPractice.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MS-Marcks/CSRFAttackPractice/issues"
+  },
+  "homepage": "https://github.com/MS-Marcks/CSRFAttackPractice#readme",
+  "dependencies": {
+    "@babel/core": "^7.15.5",
+    "@babel/node": "^7.15.4",
+    "@babel/preset-env": "^7.15.6",
+    "connect-flash-plus": "^0.2.1",
+    "express": "^4.17.1",
+    "express-handlebars": "^5.3.4",
+    "express-session": "^1.17.2",
+    "uuid": "^8.3.2"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.15.7",
+    "@babel/register": "^7.15.3",
+    "nodemon": "^2.0.12"
+  }
+}
