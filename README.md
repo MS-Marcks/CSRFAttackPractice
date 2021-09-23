@@ -256,4 +256,82 @@ En la actualidad existen varios ataques cibernéticos hacia aplicaciones web que
       lo que sucedera es que mostrara el mensaje que indica que sus credenciales no son validas y por conscuente el usuario pedira un cambio de contraseña, y ese link sera enviado al correo del atacante y el atacante podra cambiar la contraseña.
 
       -----------------
-      
+      para evitar los ataques de CSRF existe una tenica que es **CSRF TOKEN**
+
+      **TOKEN CSRF:** Los token CSRF permiten prevenir un frecuente agujero de seguridad de las aplicaciones web llamado "Cross Site Request Forgery". En español sería algo como "falsificación de petición en sitios cruzados" o simplemente falsificación de solicitud entre sitios.
+
+      ![014](img/014.png) 
+
+      **nota:** en este caso el token CSRF lo incrusta dentro de formulario que solicita del cliente para realizar una accion dentro de la pagina en cual por cada peticion que se haga tendra un token que se caducara dentro de un tiempo para tener seguridad que no sea robado por otro medio
+
+      en el caso del servidor implementado en nodejs se hizo un **middelware** para generar el **token CSFR** y su verificaion oir e **SESSIONID** que genera cuando se inicia sesion
+
+      ```javascript
+      import { v4 as uuid } from 'uuid';
+      const csrf = {}
+      csrf.tokens = new Map();
+
+      csrf.csrfToken = (sessionId) => {
+          const token = uuid();
+          const userTokens = csrf.tokens.get(sessionId);
+          userTokens.add(token);
+          setTimeout(() => userTokens.delete(token), 30000);
+          return token;
+      }
+      csrf.csrf = (req, res, next) => {
+          const token = req.body.csrf;
+          if (!token || !csrf.tokens.get(req.sessionID).has(token)) {
+              res.status(422).send('CSRF Token missing or expired');
+          } else {
+              next();
+          }
+      }
+      export default csrf;
+      ```
+
+      por ejemplo practicos se usra **setTimeout** para la caducidad del token
+
+      en este caso cuando se solicite un formulario para editar el correo el serivdor respondera con el mismo formulario unicamente agregando un input hidden con el token generado para ese formulario
+
+      ![015](img/015.png) 
+
+      **nota:** como puede observar en la consola de google chrome puede observar un input hidden que contendra el token
+
+      ![016](img/016.png) 
+
+      cuando se intente cambiar el correo y pase el tiempo establecido mostrara un error 
+
+      ![017](img/017.png) 
+
+      si el atacante intenta cambiar el correo elctronico como el segundo ejemplo de html no dejara cambiar el email
+
+      ![018](img/018.png) 
+
+      porque sucede esto, esto sucede porque el formulario no posee el token CSRF para realizar la peticion
+
+      bueno entonces una posible ataque es tomar el codigo del formualrio y obtener el token mediante la observacion
+
+      por ello utilizaremos el siguiente codigo
+
+      ```html
+      <!DOCTYPE html>
+      <html lang="en">
+
+      <head>
+          <meta charset="UTF-8">
+          <meta http-equiv="X-UA-Compatible" content="IE=edge">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <title>Atacante</title>
+      </head>
+
+      <body>
+      </body>
+      <script>
+          fetch('http://165.227.167.80:3002/edit', { credentials: 'include' })
+              .then(res => res.text())
+              .then(html => console.log(html))
+              .catch(err => console.log(err));
+      </script>
+
+      </html>
+      ```
