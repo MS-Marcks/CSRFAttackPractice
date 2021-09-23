@@ -80,7 +80,7 @@ En la actualidad existen varios ataques cibernéticos hacia aplicaciones web que
 
   ![OWASP ZAP](img/002.jpeg)
 
-- ## **3.2 Practica**
+- ## **3.2 Practica en aplicaciones web**
 
   - ## **3.2.1 Entorno de ejecucion de las aplicaciones**
 
@@ -359,4 +359,46 @@ En la actualidad existen varios ataques cibernéticos hacia aplicaciones web que
 
       -------
 
-      # Por ello se cumple el prometido de proteger las paginas web o aplicaciones web ante un **ATAUQE CSRF**
+      # Por ello se cumple el prometido de proteger las paginas web o aplicaciones web ante un **ATAQUE CSRF**
+
+- ## **3.2 Practica en aplicaciones OWASP**
+
+    para poder instalar owasap debera de irse a la **[pagina oficial](https://www.zaproxy.org/)**
+
+
+    ![021](img/021.png) 
+
+    para configurar el funcionamiento de owasp zap debere de realizar los siguente pasos:
+
+    ![022](img/022.png) 
+
+    ![023](img/023.png) 
+
+    ![024](img/024.png) 
+
+    ![025](img/025.png) 
+
+    ![026](img/026.png) 
+
+    ![027](img/027.png) 
+
+    ![028](img/028.png)
+
+    ![029](img/029.png) 
+
+    ![030](img/030.png) 
+
+    una vez realizado los pasos para la configuracion haremos la prueba para el servidor que no tiene la proteccion CSRF
+
+
+    ![031](img/031.png) 
+
+    como pueden observar en la imagen advierte que puede ser atacado por CSRF
+
+    ![032](img/032.png) 
+
+    Cuando se implementa la proteccion ya no tira la adverentecia.
+
+
+    -----
+    con este se termina la pratica del ataque CSRF en donde se pudo ver varias posibles ataques del CSRF y su funcionamiento en la vida real. por consgueinte siempre recominedo estar atento a las acciones realizadas en la paginas web, porque en realidad nunca se sabe si se esta enfrente de un ataque
