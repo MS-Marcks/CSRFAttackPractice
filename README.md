@@ -124,8 +124,9 @@ En la actualidad existen varios ataques cibernéticos hacia aplicaciones web que
         docker run -d -p "5000:5000" --name csrfattackserver cloud.canister.io:5000/msmarcks/csrfattackserver
         ```
 
-    - ## **3.2.3 Entornos de ejecucion de las aplicaciones web**
+  - ## **3.2.3 Entornos de ejecucion de las aplicaciones web**
 
       - el servidor **targetServer** se ejecutara en un entorno de **nodejs**
       - el servidor **attackerserver** se ejecutara en un entorno de **ngninx**
     
+   - ## **3.2.4 ejecucion de la practica**
