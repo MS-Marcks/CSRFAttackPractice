@@ -133,8 +133,6 @@ En la actualidad existen varios ataques cibernéticos hacia aplicaciones web que
    - ## **3.2.4 ejecucion de la practica**
       En la practica como se acoto anteriormente se usaran los servidores uno sin la proteccion anti CSRF que trabajeremos con ese servidor primero
 
-      - **ruta de login**
-
       ![003](img/003.png)
 
       en cual este servira para iniciar seson en la aplicacion web
@@ -255,4 +253,7 @@ En la actualidad existen varios ataques cibernéticos hacia aplicaciones web que
 
       ![013](img/013.png)  
 
-      lo que sucedera es que mostrara el mensaje que indica que sus credenciales no son validas y por conscuente el usuario pedira un cambio de contraseña, y ese link sera enviado al correo del atacante y atacante podra cambiar la contraseña
+      lo que sucedera es que mostrara el mensaje que indica que sus credenciales no son validas y por conscuente el usuario pedira un cambio de contraseña, y ese link sera enviado al correo del atacante y el atacante podra cambiar la contraseña.
+
+      -----------------
+      
