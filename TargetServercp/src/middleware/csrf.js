@@ -22,7 +22,4 @@ csrf.csrf = (req, res, next) => {
     }
 }
 
-
-
-
 export default csrf;

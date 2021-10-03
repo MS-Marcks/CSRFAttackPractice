@@ -1,11 +1,9 @@
 'use strict';
 
-
-
 class ControllerLogout {
     static async logOut(req, res) {
         req.session.destroy();
-        res.send("Cerro sesion");
+        res.redirect("login");
     }
 }
 export default ControllerLogout;

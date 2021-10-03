@@ -8,11 +8,13 @@ class ControllerLogin {
     }
     static async login(req, res) {
         if (!req.body.email || !req.body.password) {
-            return res.status(400).send("rellene todos campos del formulario");
+            res.render("login", { message: "rellene todos campos del formulario" })
+            return;
         }
         const user = users.find(user => user.email === req.body.email);
         if (!user || user.password !== req.body.password) {
-            return res.status(400).send("Credenciales invalidas");
+            res.render("login", { message: "Credenciales invalidas" })
+            return;
         }
         req.session.userId = user.id;
         csrf.tokens.set(req.sessionID, new Set())

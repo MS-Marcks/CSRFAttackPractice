@@ -2,7 +2,7 @@
 
 class ControllerHome {
     static async ViewHome(req, res) {
-        res.send("Hola");
+        res.render("home");
     }
 
 }

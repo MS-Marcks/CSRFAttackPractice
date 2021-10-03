@@ -11,6 +11,7 @@ var route = Router();
 
 
 route.use('/login', ControllerLogin)
+route.use('/', ControllerLogin)
 route.use('/home', Login, ControllerHome)
 route.use('/edit', Login, ControllerEditEmail)
 route.use('/logout', Login, ControllerLogout)

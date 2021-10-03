@@ -23,11 +23,15 @@ app.set("view engine", "hbs");
 
 app.use("/", route);
 
+
+
+app.get('/:img', function(req, res){
+    res.sendFile( path.join(__dirname,"img",req.params.img) );
+}); 
+
 app.listen(PORT, (req, res) => {
     console.log("liste", PORT);
 })
-
-
 
 
 
