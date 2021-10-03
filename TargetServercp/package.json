@@ -10,8 +10,9 @@
     "clean": "rm -rf build && mkdir build",
     "build-babel": "babel -d ./build src -s",
     "build": "npm run clean && npm run build-babel",
-    "start": "npm run build && npm run copy-file",
-    "copy-file": "mkdir build/view && cp -r ./src/view/* ./build/view/"
+    "start": "npm run build && npm run copy-file-view && npm run copy-file-img",
+    "copy-file-view": "mkdir build/view && cp -r ./src/view/* ./build/view/",
+    "copy-file-img": "mkdir build/img && cp -r ./src/img/* ./build/img/"
   },
   "repository": {
     "type": "git",
